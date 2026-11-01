@@ -1,0 +1,15 @@
+{
+  "name": "streakboard-backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "setup": "node setup.mjs",
+    "sync": "node scripts/sync-shared.mjs",
+    "test": "node scripts/sync-shared.mjs && node --test test/*.test.js",
+    "predeploy": "node scripts/sync-shared.mjs",
+    "deploy": "appwrite push functions"
+  },
+  "dependencies": { "node-appwrite": ">=17.0.0" }
+}

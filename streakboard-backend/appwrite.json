@@ -1,0 +1,36 @@
+{
+  "projectId": "6ae6279a003770be29d9",
+  "projectName": "StreakBoard",
+  "functions": [
+    {
+      "$id": "checkin", "name": "checkin", "runtime": "node-22", "execute": ["users"],
+      "events": [], "scopes": ["rows.read", "rows.write"], "timeout": 15,
+      "entrypoint": "src/main.js", "commands": "npm install", "path": "functions/checkin"
+    },
+    {
+      "$id": "stats", "name": "stats", "runtime": "node-22", "execute": ["users"],
+      "events": [], "scopes": ["rows.read", "rows.write"], "timeout": 15,
+      "entrypoint": "src/main.js", "commands": "npm install", "path": "functions/stats"
+    },
+    {
+      "$id": "create-habit", "name": "create-habit", "runtime": "node-22", "execute": ["users"],
+      "events": [], "scopes": ["rows.read", "rows.write"], "timeout": 15,
+      "entrypoint": "src/main.js", "commands": "npm install", "path": "functions/create-habit"
+    },
+    {
+      "$id": "export", "name": "export", "runtime": "node-22", "execute": ["users"],
+      "events": [], "scopes": ["rows.read"], "timeout": 60,
+      "entrypoint": "src/main.js", "commands": "npm install", "path": "functions/export"
+    },
+    {
+      "$id": "cascade", "name": "cascade", "runtime": "node-22", "execute": [],
+      "events": [
+        "databases.streakboard.tables.habits.rows.*.delete",
+        "databases.streakboard.tables.checkins.rows.*.delete",
+        "users.*.delete"
+      ],
+      "scopes": ["rows.read", "rows.write"], "timeout": 300,
+      "entrypoint": "src/main.js", "commands": "npm install", "path": "functions/cascade"
+    }
+  ]
+}

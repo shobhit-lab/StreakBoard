@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>StreakBoard: a daily habit tracker</title>
+    <meta name="description" content="Check in once a day, keep your streak, and see your last 90 days at a glance. No signup." />
+    <meta name="theme-color" content="#f4f3f0" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f0f0e" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script>
+      // Apply the saved (or system) theme before first paint to avoid a flash.
+      (function () {
+        try {
+          var saved = localStorage.getItem('streakboard-theme');
+          var dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
